@@ -85,7 +85,7 @@ function Visualizer() {
         canvas.height = document.getElementById("background").height;
         var cwidth = canvas.width,
             cheight = canvas.height - 2,
-            meterWidth = 20,
+            meterWidth = 10,
             gap = 25,
             capHeight = 5,
             capStyle = '#fff',
