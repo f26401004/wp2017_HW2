@@ -226,10 +226,11 @@ window.addEventListener("load", function () {
 		ctx.canvas.width = width;
 		ctx.canvas.height = height;
 
-		document.getElementById("video").width = width;
-		document.getElementById("video").height = height;
 		document.getElementById("texture").width = width;
 		document.getElementById("texture").height = height;
+		document.getElementById("video").width = width;
+		document.getElementById("video").height = height;
+
 
 		ctx.scale(1 / options.resolution, 1 / options.resolution);
 
