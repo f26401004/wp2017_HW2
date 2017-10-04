@@ -131,9 +131,9 @@ function Visualizer() {
                 ctx.fillRect(i * gap - 1, cheight - value + capHeight - 1, meterWidth + 2, cheight + 2);
                 ctx.fillStyle = gradient;
                 ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
-                average += cheight;
+                average += cheight - value;
             }
-            average /= step * 170;
+            average /= step * 100;
             $('#photo').css({
                 width: String(average) + '%',
                 height: String(average) + '%'
