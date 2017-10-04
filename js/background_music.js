@@ -5,6 +5,7 @@ function Visualizer() {
     this.config = function (Object) {
         Myself.audioUrl = Object.audioUrl;
         Myself.canvasId = Object.canvasId;
+        alert("test");
         // 重新設定 canvas 大小
         document.getElementById(Myself.canvasId).width = document.getElementById("background").width;
         document.getElementById(Myself.canvasId).height = document.getElementById("background").height;
