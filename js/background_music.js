@@ -122,7 +122,7 @@ function Visualizer() {
                 ;
                 // 繪製頻譜條
                 ctx.fillStyle = gradient;
-                ctx.fillRect(i * 12, cheight - value + capHeight, meterWidth, cheight);
+                ctx.fillRect(i * gap, cheight - value + capHeight, meterWidth, cheight);
             }
             requestAnimationFrame(drawMeter);
         }
