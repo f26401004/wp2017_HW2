@@ -8,6 +8,7 @@ body
     opacity: 0.4;
     position: fixed;
     margin: 0px auto;
+    z-index: -999;
 }
 
 #visualizer
