@@ -225,9 +225,6 @@ window.addEventListener("load", function () {
 		//actual canvas
 		ctx.canvas.width = width;
 		ctx.canvas.height = height;
-		// 設定動畫背景
-		document.getElementById("video").width = width + 192;
-		document.getElementById("video").height = height + 108;
 
 
 		ctx.scale(1 / options.resolution, 1 / options.resolution);
