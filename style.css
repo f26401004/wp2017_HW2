@@ -6,6 +6,10 @@ body
 #visualizer
 {
     margin:0 auto;
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);    
+    filter: blur(10px);    
 }
 
 a.single > img
@@ -147,7 +151,7 @@ p#works_area
     left: 50%;
     top: 50%;
     margin-top: -385px;
-    margin-left: -220px;
+    margin-left: -215px;
     background-color: #887058; 
     overflow: hidden;
 }
@@ -190,7 +194,7 @@ p#works_area
     width: 22px;
     height: 62px;
     margin-top: 370px;
-    margin-left: 70px;
+    margin-left: 67px;
     transform-origin: center top;
     z-index: 5;
     animation: light_motion 4s infinite;
