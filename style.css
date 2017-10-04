@@ -1,0 +1,285 @@
+body
+{
+    background-image: url("images/PC_back.png");
+}
+
+#cvs
+{
+    display:block;
+    margin:0 auto;
+}
+
+a.single > img
+{
+    width: 56px;
+    height: 56px;
+    padding: 3px;
+    border: 1px solid #341718;
+}
+
+p#intro_text
+{
+    line-height: 32px;
+}
+
+p#hyperlinks
+{
+    line-height: 40px;
+    font-size: 24px;
+}
+
+p#index
+{
+    margin-top: -4px;
+}
+
+#background {
+	position: fixed;
+	top: 0;
+    left: 0;
+    opacity: 0.25;
+	z-index: -100;
+}
+
+
+#i_title
+{
+    background-color: #f2e2c3;
+    border-radius: 25px;
+    text-align: center;
+    padding: 5px;
+    margin-left: 60px;
+    width: 200px;
+}
+
+#w_title
+{
+    background-color: #f2e2c3;
+    border-radius: 25px;
+    text-align: center;
+    padding: 5px;
+    margin-left: 60px;
+    width: 200px;
+}
+
+#c_title
+{
+    background-color: #f2e2c3;
+    border-radius: 25px;
+    text-align: center;
+    padding: 5px;
+    margin-left: 60px;
+    width: 200px;
+}
+
+p#intro_text
+{
+    background-color: #f2e2c3;
+    padding: 10px;
+}
+
+p#hyperlinks
+{
+    background-color: #f2e2c3;
+    padding: 45px;
+}
+
+p#works_area
+{
+    background-color: #f2e2c3;
+    margin-top: 40px;
+    padding: 22px;
+}
+
+#button_left
+{
+    position: absolute;
+    left: 50%;
+    top: 49%;
+    margin-left: -450px;
+    z-index: 5;
+    animation: lindex_icon_animation 2s infinite;
+}
+
+#button_right
+{
+    position: absolute;
+    left: 50%;
+    top: 49%;
+    margin-left: 330px;
+    z-index: 5;
+    animation: rindex_icon_animation 2s infinite;
+}
+
+@-webkit-keyframes lindex_icon_animation
+{
+    0% { opacity: 0.25;}
+    50% { opacity: 1;}
+    100% { opacity: 0.25;}
+}
+
+@keyframes lindex_icon_animation
+{
+    0% { opacity: 0.25;}
+    50% { opacity: 1;}
+    100% { opacity: 0.25;}
+}
+
+@-webkit-keyframes rindex_icon_animation
+{
+    0% { opacity: 0.25;}
+    50% { opacity: 1;}
+    100% { opacity: 0.25;}
+}
+
+@keyframes rindex_icon_animation
+{
+    0% { opacity: 0.25;}
+    50% { opacity: 1;}
+    100% { opacity: 0.25;}
+}
+
+#contents
+{
+    width: 432px;
+    height: 768px;
+    border: 3px solid #FFFFFF;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -385px;
+    margin-left: -217px;
+    background-color: #887058; 
+    overflow: hidden;
+}
+
+#flower
+{
+    position: absolute;
+    width: 432px;
+    height: 313px;
+    z-index: 0;
+}
+
+#photo_back
+{
+    position: absolute;
+    width: 400px;
+    height: 399px;
+    margin-top: 10px;
+    margin-left: 15px;
+    z-index: 1;
+}
+
+#photo
+{
+    position:  absolute;
+    width: 292px;
+    height: 292px;
+    margin-top: 40px;
+    margin-left: 50px;
+    border-radius: 292px;
+    border: 10px solid #FFFFFF;
+    box-shadow: 16px 16px 0px 0px #514335;
+    padding: 10px;
+    z-index: 2;
+}
+
+#llight
+{
+    position: absolute;
+    width: 22px;
+    height: 62px;
+    margin-top: 370px;
+    margin-left: 70px;
+    transform-origin: center top;
+    z-index: 5;
+    animation: light_motion 4s infinite;
+}
+
+#rlight
+{
+    position: absolute;
+    width: 22px;
+    height: 62px;
+    margin-top: 370px;
+    margin-left: 342px;
+    transform-origin: center top;
+    z-index: 5;
+    animation: light_motion 4s infinite;
+}
+
+@-webkit-keyframes light_motion
+{
+    0% { transform: rotate(15deg);}
+    50% { transform: rotate(-15deg);}
+    100% { transform: rotate(15deg);}
+}
+
+@keyframes light_motion
+{
+    0% { transform: rotate(15deg);}
+    50% { transform: rotate(-15deg);}
+    100% {transform: rotate(15deg);}
+}
+
+#intro
+{
+    position: absolute;
+    width: 332px;
+    height: 212px;
+    margin-top: 360px;
+    margin-left: 40px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: "王漢宗綜藝體繁";
+    src: url("fonts/wt040.tff");
+    color: #9e8267;
+    z-index: 4;
+}
+
+#works
+{
+    position: absolute;
+    width: 332px;
+    height: 212px;
+    margin-top: 360px;
+    margin-left: 40px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: "王漢宗綜藝體繁";
+    src: url("fonts/wt040.tff");
+    color: #9e8267;
+    z-index: 4;
+}
+
+#connection
+{
+    position: absolute;
+    width: 332px;
+    height: 212px;
+    margin-top: 360px;
+    margin-left: 40px;
+    padding: 10px;
+    font-family: "王漢宗綜藝體繁";
+    font-size: 20px;
+    src: url("fonts/wt040.tff");
+    color: #9e8267;
+    z-index: 4;
+}
+
+
+#bookmark
+{
+    position: absolute;
+    width: 432px;
+    height: 32px;
+    margin-top: 706px;
+    background-color: #341718;
+    text-align: center;
+    font-size: 32px;
+    color: #FFFFFF;
+    z-index: 3;
+}
+
+
