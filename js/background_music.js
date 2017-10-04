@@ -106,6 +106,7 @@ function Visualizer() {
         gradient.addColorStop(0, "#A60F38");
         gradient.addColorStop(1, '#A60F38');
         var average = 0;
+        alert(average);
         var drawMeter = function () {
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
@@ -134,7 +135,6 @@ function Visualizer() {
                 average += cheight - value;
             }
             average /= step * 100;
-            alert(average);
             $('#photo').css({
                 width: String(average) + '%',
                 height: String(average) + '%'
