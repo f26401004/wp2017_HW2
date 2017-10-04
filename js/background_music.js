@@ -107,8 +107,6 @@ function Visualizer() {
         gradient.addColorStop(1, '#A60F38');
 
         var drawMeter = function () {
-            // 計算平均值
-            var average = 0;
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
             // 計算採樣步長
@@ -117,7 +115,6 @@ function Visualizer() {
             for (var i = 0; i < meterNum; i++) {
                 // 獲取當前的能量值
                 var value = Math.sqrt(array[i * step] * array[i * step] * 1.5) * 1.5;
-                average += value;
                 if (capYPositionArray.length < Math.round(meterNum)) {
                     // 初始化保存帽頭位置的陣列，將第一個畫面的資訊壓入
                     capYPositionArray.push(value);
@@ -135,15 +132,13 @@ function Visualizer() {
                 ctx.fillStyle = gradient;
                 ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
             }
-            alert(average);
-            average /= step;
             $('#photo').css({
-                width: String(average) + '%',
-                height: String(average) + '%'
+                width: '+=1%',
+                height: '+=1%'
             });
             $('#photo_back').css({
-                width: String(average) + '%',
-                height: String(average) + '%'
+                width: '+=1%',
+                height: '+=1%'
             });
             requestAnimationFrame(drawMeter);
         }
