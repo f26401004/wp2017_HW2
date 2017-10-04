@@ -80,8 +80,10 @@ function Visualizer() {
     }
     // 條形音譜效果
     function bar(analyser) {
-        var canvas = document.getElementById(Myself.canvasId),
-            cwidth = canvas.width,
+        var canvas = document.getElementById(Myself.canvasId)
+        canvas.width = document.getElementById("background").width;
+        canvas.height = document.getElementById("background").height;
+        var cwidth = canvas.width,
             cheight = canvas.height - 2,
             meterWidth = 20,
             gap = 25,
