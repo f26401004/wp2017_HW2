@@ -62,13 +62,8 @@ function Visualizer() {
     }
     // 繪製頻譜
     function drawSpectrum(analyser) {
-        // 颜色陣列
-        var colorArray = ['#f82466', '#00FFFF', '#AFFF7C', '#FFAA6A', '#6AD5FF', '#D26AFF', '#FF6AE6', '#FF6AB8', '#FF6A6A'];
-        // 颜色隨機數
-        var colorRandom = Math.floor(Math.random() * colorArray.length);
         // 效果隨機數
         var effectRandom = Math.floor(Math.random() * 1);
-        Myself.color = colorArray[colorRandom];
         switch (effectRandom) {
             case 0:
                 // 條形
@@ -83,7 +78,7 @@ function Visualizer() {
     // 條形音譜效果
     function bar(analyser) {
         var canvas = document.getElementById(Myself.canvasId);
-        canvas.width = document.getElementById("background").width - 56;
+        canvas.width = document.getElementById("background").width - 60;
         canvas.height = document.getElementById("background").height - 64;
         var cwidth = canvas.width,
             cheight = canvas.height - 2,
@@ -98,7 +93,7 @@ function Visualizer() {
         // 獲取 canvas 內容繪製
         ctx = canvas.getContext('2d'),
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
-        gradient.addColorStop(1, Myself.color);
+
         var drawMeter = function () {
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
@@ -123,6 +118,7 @@ function Visualizer() {
                 }
                 ;
                 // 繪製頻譜條
+                ctx.fillRect(i * gap - 1, cheight - value + capHeight - 1, meterWidth + 2, cheight + 2);
                 ctx.fillStyle = gradient;
                 ctx.fillRect(i * gap, cheight - value + capHeight, meterWidth, cheight);
             }
