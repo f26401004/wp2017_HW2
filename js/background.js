@@ -225,6 +225,11 @@ window.addEventListener("load", function () {
 		//actual canvas
 		ctx.canvas.width = width;
 		ctx.canvas.height = height;
+
+		// 設定影片背景大小
+		document.getElementById("frame").width = width;
+		document.getElementById("frame").height = height;
+
 		ctx.scale(1 / options.resolution, 1 / options.resolution);
 
 		//circle canvas
