@@ -105,7 +105,7 @@ function Visualizer() {
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
         gradient.addColorStop(0, "#A60F38");
         gradient.addColorStop(1, '#A60F38');
-        alert(average);
+        var average;
         var drawMeter = function () {
             average = 0;
             var array = new Uint8Array(analyser.frequencyBinCount);
