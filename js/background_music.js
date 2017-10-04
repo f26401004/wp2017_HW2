@@ -86,7 +86,7 @@ function Visualizer() {
             total += array[i];
             if (max < array[i]) max = array[i];
         }
-        avarage = total / data.length / max * 100;
+        avarage = total / data.length;
         $('#photo').css({
             width: String(average),
             height: String(average)
