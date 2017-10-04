@@ -93,6 +93,7 @@ function Visualizer() {
         // 獲取 canvas 內容繪製
         ctx = canvas.getContext('2d'),
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, '#ca2fa7');
         gradient.addColorStop(0.9, '#ca2fa7');
         gradient.addColorStop(1, '#ff5151');
         var drawMeter = function () {
