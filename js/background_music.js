@@ -81,7 +81,7 @@ function Visualizer() {
     function dynamic_photo(analyser) {
         var array = new Uint8Array(analyser.frequencyBinCount);
         analyser.getByteFrequencyData(array);
-        var max;
+        var max, total, avarage;
         for (var i = 0; i < array.length; i++) {
             total += array[i];
             if (max < array[i]) max = array[i];
