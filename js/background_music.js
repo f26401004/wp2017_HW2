@@ -105,7 +105,7 @@ function Visualizer() {
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
         gradient.addColorStop(0, "#A60F38");
         gradient.addColorStop(1, '#A60F38');
-
+        var average = 0;
         var drawMeter = function () {
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
@@ -131,14 +131,16 @@ function Visualizer() {
                 ctx.fillRect(i * gap - 1, cheight - value + capHeight - 1, meterWidth + 2, cheight + 2);
                 ctx.fillStyle = gradient;
                 ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
+                average += value;
             }
+            average /= step;
             $('#photo').css({
-                width: '+=1%',
-                height: '+=1%'
+                width: String(average) + '%',
+                height: String(average) + '%'
             });
             $('#photo_back').css({
-                width: '+=1%',
-                height: '+=1%'
+                width: String(average) + '%',
+                height: String(average) + '%'
             });
             requestAnimationFrame(drawMeter);
         }
