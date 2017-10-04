@@ -81,16 +81,16 @@ function Visualizer() {
     // 條形音譜效果
     function bar(analyser) {
         var canvas = document.getElementById(Myself.canvasId);
-        canvas.width = document.getElementById("background").width;
-        canvas.height = document.getElementById("background").height;
+        canvas.width = document.getElementById("background").width - 32;
+        canvas.height = document.getElementById("background").height - 32;
         var cwidth = canvas.width,
             cheight = canvas.height - 2,
-            meterWidth = 10,
+            meterWidth = 15,
             gap = 25,
-            capHeight = 5,
+            capHeight = 3,
             capStyle = '#fff',
             // 頻譜條數量
-            meterNum = canvas.width / (10 + 2),
+            meterNum = canvas.width / (15 + 2),
             // 將上一個畫面的帽頭放到陣列儲存
             capYPositionArray = [];
         // 獲取 canvas 內容繪製
