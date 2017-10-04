@@ -5,11 +5,18 @@ body
    margin: 0px auto;
 }
 
+#texture
+{
+    background-image: url("images/texture.png");
+    background-repeat: repeat;
+    opacity: 0.25;
+}
+
 #video
 {
     opacity: 0.25;
     position: absolute;
-    margin-left: -60px;
+    margin-left: -50px;
     margin-top: -60px;
     z-index: -999;
 }

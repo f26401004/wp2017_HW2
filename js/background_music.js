@@ -92,12 +92,12 @@ function Visualizer() {
         canvas.height = document.getElementById("background").height - 64;
         var cwidth = canvas.width,
             cheight = canvas.height - 2,
-            meterWidth = 12,
-            gap = 20,
+            meterWidth = 8,
+            gap = 14,
             capHeight = 3,
             capStyle = '#fff',
             // 頻譜條數量
-            meterNum = canvas.width / (12 + 2),
+            meterNum = canvas.width / (8 + 2),
             // 將上一個畫面的帽頭放到陣列儲存
             capYPositionArray = [];
         // 獲取 canvas 內容繪製
