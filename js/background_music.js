@@ -6,8 +6,8 @@ function Visualizer() {
         Myself.audioUrl = Object.audioUrl;
         Myself.canvasId = Object.canvasId;
         // 重新設定 canvas 大小
-        document.getElementById(Myself.canvasId).width = window.innerWidth;
-        document.getElementById(Myself.canvasId).height = window.innerHeight;
+        document.getElementById(Myself.canvasId).width = document.getElementById("background").width;
+        document.getElementById(Myself.canvasId).height = document.getElementById("background").height;
         windowAudioContext();
     }
     // 實例化一個音頻類型 window.AudioContext
