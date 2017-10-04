@@ -105,9 +105,10 @@ function Visualizer() {
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
         gradient.addColorStop(0, "#A60F38");
         gradient.addColorStop(1, '#A60F38');
-        // 計算平均值
-        var average = 0;
+
         var drawMeter = function () {
+            // 計算平均值
+            var average = 0;
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
             // 計算採樣步長
@@ -121,7 +122,6 @@ function Visualizer() {
                     // 初始化保存帽頭位置的陣列，將第一個畫面的資訊壓入
                     capYPositionArray.push(value);
                 }
-                ;
                 ctx.fillStyle = capStyle;
                 // 繪製帽頭
                 if (value < capYPositionArray[i]) {
@@ -135,8 +135,7 @@ function Visualizer() {
                 ctx.fillStyle = gradient;
                 ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
             }
-            //average /= step;
-
+            average /= step;
             $('#photo').css({
                 width: String(average) + '%',
                 height: String(average) + '%'
