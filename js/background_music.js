@@ -95,6 +95,7 @@ function Visualizer() {
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
         gradient.addColorStop(0, '#ff5151');
         gradient.addColorStop(0.3, '#ca2fa7');
+        gradient.addColorStop(1, '#ca2f7a');
         var drawMeter = function () {
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
