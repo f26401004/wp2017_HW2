@@ -117,6 +117,7 @@ function Visualizer() {
                 // 獲取當前的能量值
                 var value = Math.sqrt(array[i * step] * array[i * step] * 1.5) * 1.5;
                 average += array[i * step];
+                alert(average);
                 if (max < array[i * step]) max = array[i * step];
                 if (capYPositionArray.length < Math.round(meterNum)) {
                     // 初始化保存帽頭位置的陣列，將第一個畫面的資訊壓入
@@ -138,7 +139,7 @@ function Visualizer() {
                 ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
             }
             average /= step;
-            alert(average);
+
             $('#photo').css({
                 width: String(average) + '%',
                 height: String(average) + '%'
