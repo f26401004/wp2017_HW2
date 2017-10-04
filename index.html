@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="js/background.js"></script>
     <script type="text/javascript" src="js/background_music.js"></script>
+    <script async src="https://www.youtube.com/iframe_api"></script>
 
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -149,14 +150,36 @@
                     break;
             }
         }
+
+        function onYouTubeIframeAPIReady() {
+            var player;
+            player = new YT.Player('muteYouTubeVideoPlayer', {
+                videoId: '-tKVN2mAKRI', // YouTube 影片ID
+                width: 1920,               // 播放器寬度 (px)
+                opacity: 0.4,
+                height: 1080,              // 播放器高度 (px)
+                playerVars: {
+                    autoplay: 1,        // 在讀取時自動播放影片
+                    controls: 0,        // 在播放器顯示暫停／播放按鈕
+                    showinfo: 0,        // 隱藏影片標題
+                    modestbranding: 1,  // 隱藏YouTube Logo
+                    loop: 1,            // 讓影片循環播放
+                    fs: 1,              // 隱藏全螢幕按鈕
+                    cc_load_policty: 1, // 隱藏字幕
+                    iv_load_policy: 3,  // 隱藏影片註解
+                    autohide: 1         // 當播放影片時隱藏影片控制列
+                },
+                events: {
+                    onReady: function (e) {
+                        e.target.mute();
+                    }
+                }
+            });
+        }
     </script>
 </head>
 
 <body>
-    <div id="vedio_back">
-        <iframe src="https://www.youtube.com/embed/-tKVN2mAKRI?autoplay=1&controls=0&showinfo=0&autohide=1&loop=1" volumn="0" frameborder="0"
-            allowfullscreen id="frame"></iframe>
-    </div>
     <center>
         <canvas id="visualizer"></canvas>
     </center>
@@ -164,7 +187,7 @@
 
     <a href="#" id="button"><img src="images/button_left.png" id=button_left onclick="change_left_page()" href=""></img></a>
     <div id=contents>
-        <img id=flower src="images/flower.png"><img>
+        <img id=flower src="images/flower.png"></img>
         <img id=photo_back src="images/photo_back.png"></img>
         <img id=photo src="images/photo.png"></img>
         <img id=llight src="images/chandelier.png"></img>
