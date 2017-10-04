@@ -225,7 +225,6 @@ window.addEventListener("load", function () {
 		//actual canvas
 		ctx.canvas.width = width;
 		ctx.canvas.height = height;
-		canvas.height = document.getElementById("background").height;
 		ctx.scale(1 / options.resolution, 1 / options.resolution);
 
 		//circle canvas

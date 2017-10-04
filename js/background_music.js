@@ -90,7 +90,7 @@ function Visualizer() {
             capHeight = 5,
             capStyle = '#fff',
             // 頻譜條數量
-            meterNum = 800 / (10 + 2),
+            meterNum = canvas.width / (10 + 2),
             // 將上一個畫面的帽頭放到陣列儲存
             capYPositionArray = [];
         // 獲取 canvas 內容繪製
@@ -114,9 +114,9 @@ function Visualizer() {
                 ctx.fillStyle = capStyle;
                 // 繪製帽頭
                 if (value < capYPositionArray[i]) {
-                    ctx.fillRect(i * 12, cheight - (--capYPositionArray[i]), meterWidth, capHeight);
+                    ctx.fillRect(i * gap, cheight - (--capYPositionArray[i]), meterWidth, capHeight);
                 } else {
-                    ctx.fillRect(i * 12, cheight - value, meterWidth, capHeight);
+                    ctx.fillRect(i * gap, cheight - value, meterWidth, capHeight);
                     capYPositionArray[i] = value;
                 }
                 ;

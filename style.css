@@ -3,9 +3,8 @@ body
     background-image: url("images/PC_back.png");
 }
 
-#cvs
+#visualizer
 {
-    display:block;
     margin:0 auto;
 }
 
