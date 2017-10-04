@@ -82,23 +82,19 @@ function Visualizer() {
         canvas.height = document.getElementById("background").height - 64;
         var cwidth = canvas.width,
             cheight = canvas.height - 2,
-            meterWidth = 15,
-            gap = 25,
+            meterWidth = 12,
+            gap = 20,
             capHeight = 3,
             capStyle = '#fff',
             // 頻譜條數量
-            meterNum = canvas.width / (15 + 2),
+            meterNum = canvas.width / (12 + 2),
             // 將上一個畫面的帽頭放到陣列儲存
             capYPositionArray = [];
         // 獲取 canvas 內容繪製
         ctx = canvas.getContext('2d'),
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
-        //gradient.addColorStop(0, '#ca2fa7');
-        //gradient.addColorStop(0.9, '#ca2fa7');
-        //gradient.addColorStop(1, '#ff5151');
-        gradient.addColorStop(0, "black");
-        gradient.addColorStop(0.95, "red");
-        gradient.addColorStop(1, "white");
+        gradient.addColorStop(0, "#d43e96");
+        gradient.addColorStop(1, '#d43e96');
         var drawMeter = function () {
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
