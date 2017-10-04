@@ -30,6 +30,8 @@ function Visualizer() {
         // 設置回傳形式
         request.responseType = 'arraybuffer';
         request.onload = function () {
+            // 設定重複撥放
+            request.response.loop = true;
             // 讀取成功返回 ArrayBuffer 並播放
             play(request.response);
         }
