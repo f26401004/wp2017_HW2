@@ -5,6 +5,9 @@ function Visualizer() {
     this.config = function (Object) {
         Myself.audioUrl = Object.audioUrl;
         Myself.canvasId = Object.canvasId;
+        // 重新設定 canvas 大小
+        document.getElementById(Myself.canvasId).width = window.innerWidth;
+        document.getElementById(Myself.canvasId).height = window.innerHeight;
         windowAudioContext();
     }
     // 實例化一個音頻類型 window.AudioContext
@@ -84,7 +87,7 @@ function Visualizer() {
             cwidth = canvas.width,
             cheight = canvas.height - 2,
             meterWidth = 20,
-            gap = 2,
+            gap = 25,
             capHeight = 5,
             capStyle = '#fff',
             // 頻譜條數量
@@ -126,5 +129,4 @@ function Visualizer() {
         }
         requestAnimationFrame(drawMeter);
     }
-
 }
