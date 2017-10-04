@@ -91,9 +91,6 @@ function Visualizer() {
             meterNum = 800 / (10 + 2),
             // 將上一個畫面的帽頭放到陣列儲存
             capYPositionArray = [];
-        // 重新設定 canvas 大小
-        canvas.width = document.getElementById("background").width;
-        canvas.height = document.getElementById("background").height;
         // 獲取 canvas 內容繪製
         ctx = canvas.getContext('2d'),
             gradient = ctx.createLinearGradient(0, 0, 0, 300);

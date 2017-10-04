@@ -225,6 +225,10 @@ window.addEventListener("load", function () {
 		//actual canvas
 		ctx.canvas.width = width;
 		ctx.canvas.height = height;
+		// 重新設定 music virsualizer 大小
+		document.getElementById("virsualizer").width = width;
+		document.getElementById("virsualizer").height = height;
+		canvas.height = document.getElementById("background").height;
 		ctx.scale(1 / options.resolution, 1 / options.resolution);
 
 		//circle canvas
