@@ -68,13 +68,35 @@ function Visualizer() {
             case 0:
                 // 條形
                 bar(analyser);
+                dynamic_photo(analyser);
                 break;
             default:
                 // 條形
                 bar(analyser);
+                dynamic_photo(analyser);
         }
 
     }
+
+    function dynamic_photo(analyser) {
+        var array = new Uint8Array(analyser.frequencyBinCount);
+        analyser.getByteFrequencyData(array);
+        var max;
+        for (var i = 0; i < data.length; i++) {
+            total += array[i];
+            if (max < array[i]) max = array[i];
+        }
+        avarage = total / data.length / max * 100;
+        $('#photo').css({
+            width: String(average),
+            height: String(average)
+        });
+        $('#photo_back').css({
+            width: String(average),
+            height: String(average)
+        });
+    }
+
     // 條形音譜效果
     function bar(analyser) {
         var canvas = document.getElementById(Myself.canvasId);
