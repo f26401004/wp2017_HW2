@@ -81,15 +81,15 @@ function Visualizer() {
     function dynamic_photo(analyser) {
         var array = new Uint8Array(analyser.frequencyBinCount);
         analyser.getByteFrequencyData(array);
-        var max, total, avarage;
+        var max, total, average;
         for (var i = 0; i < array.length; i++) {
             total += array[i];
             if (max < array[i]) max = array[i];
         }
-        avarage = total / array.length * 5;
+        average = total / array.length * 5;
         $('#photo').css({
-            width: String(average),
-            height: String(average)
+            width: String(average) + '%',
+            height: String(average + '%')
         });
         $('#photo_back').css({
             width: String(average),
