@@ -135,6 +135,7 @@ function Visualizer() {
                 average = average + capYPositionArray[i];
             }
             average /= step;
+            alert(average);
             $('#photo').css({
                 width: String(average) + '%',
                 height: String(average) + '%'
