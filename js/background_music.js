@@ -94,8 +94,8 @@ function Visualizer() {
         ctx = canvas.getContext('2d'),
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
         gradient.addColorStop(0, '#ca2fa7');
-        gradient.addColorStop(0.3, '#ff5151');
-        gradient.addColorStop(0.3, '#ff5151');
+        gradient.addColorStop(0.1, '#ff5151');
+        gradient.addColorStop(0.1, '#ff5151');
         var drawMeter = function () {
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
