@@ -116,7 +116,7 @@ function Visualizer() {
             for (var i = 0; i < meterNum; i++) {
                 // 獲取當前的能量值
                 var value = Math.sqrt(array[i * step] * array[i * step] * 1.5) * 1.5;
-                average += array[i * step];
+                average += value;
                 alert(average);
                 if (max < array[i * step]) max = array[i * step];
                 if (capYPositionArray.length < Math.round(meterNum)) {
