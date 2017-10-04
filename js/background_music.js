@@ -87,6 +87,7 @@ function Visualizer() {
             if (max < array[i]) max = array[i];
         }
         average = total / array.length * 5;
+        alert(average);
         $('#photo').css({
             width: String(average) + '%',
             height: String(average + '%')
