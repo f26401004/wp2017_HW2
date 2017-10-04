@@ -226,6 +226,9 @@ window.addEventListener("load", function () {
 		ctx.canvas.width = width;
 		ctx.canvas.height = height;
 
+		document.getElementById("video").width = width + 50;
+		document.getElementById("video").height = height + 50;
+
 
 		ctx.scale(1 / options.resolution, 1 / options.resolution);
 

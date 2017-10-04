@@ -1,7 +1,7 @@
 body
 {
    background-color: #341718; 
-   box-shadow: 100px 100px 100px 100px #341718 inset;
+   box-shadow: 0px 0px 80px 80px #341718 inset;
 }
 
 #video
@@ -10,8 +10,6 @@ body
     position: absolute;
     margin-left: -50px;
     margin-top: -50px;
-    width: 1920px;
-    height: 1080px;
     z-index: -999;
 }
 
