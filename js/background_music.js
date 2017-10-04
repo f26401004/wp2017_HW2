@@ -131,7 +131,7 @@ function Visualizer() {
                 ctx.fillRect(i * gap - 1, cheight - value + capHeight - 1, meterWidth + 2, cheight + 2);
                 ctx.fillStyle = gradient;
                 ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
-                average += value;
+                average += Integer(value);
             }
             alert(average);
             average /= step;
