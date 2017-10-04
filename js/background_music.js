@@ -5,10 +5,6 @@ function Visualizer() {
     this.config = function (Object) {
         Myself.audioUrl = Object.audioUrl;
         Myself.canvasId = Object.canvasId;
-        alert("test");
-        // 重新設定 canvas 大小
-        document.getElementById(Myself.canvasId).width = document.getElementById("background").width;
-        document.getElementById(Myself.canvasId).height = document.getElementById("background").height;
         windowAudioContext();
     }
     // 實例化一個音頻類型 window.AudioContext
@@ -95,6 +91,9 @@ function Visualizer() {
             meterNum = 800 / (10 + 2),
             // 將上一個畫面的帽頭放到陣列儲存
             capYPositionArray = [];
+        // 重新設定 canvas 大小
+        canvas.width = document.getElementById("background").width;
+        canvas.height = document.getElementById("background").height;
         // 獲取 canvas 內容繪製
         ctx = canvas.getContext('2d'),
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
