@@ -3,6 +3,13 @@ body
     background-image: url("images/PC_back.png");
 }
 
+#video
+{
+    opacity: 0.4;
+    position: fixed;
+    margin: 0px auto;
+}
+
 #visualizer
 {
     margin:0 auto;

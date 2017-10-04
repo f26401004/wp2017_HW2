@@ -153,11 +153,11 @@
 
         function onYouTubeIframeAPIReady() {
             var player;
-            player = new YT.Player('muteYouTubeVideoPlayer', {
+            player = new YT.Player('video', {
                 videoId: '-tKVN2mAKRI', // YouTube 影片ID
-                width: 1920,               // 播放器寬度 (px)
+                width: document.getElementById("background").width,               // 播放器寬度 (px)
+                height: document.getElementById("background").height,              // 播放器高度 (px)
                 opacity: 0.4,
-                height: 1080,              // 播放器高度 (px)
                 playerVars: {
                     autoplay: 1,        // 在讀取時自動播放影片
                     controls: 0,        // 在播放器顯示暫停／播放按鈕
@@ -180,6 +180,7 @@
 </head>
 
 <body>
+    <div id="video"></div>
     <center>
         <canvas id="visualizer"></canvas>
     </center>
