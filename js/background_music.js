@@ -133,8 +133,7 @@ function Visualizer() {
                 ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
                 average += cheight;
             }
-            average /= step;
-            alert(average);
+            average /= step * 170;
             $('#photo').css({
                 width: String(average) + '%',
                 height: String(average) + '%'
