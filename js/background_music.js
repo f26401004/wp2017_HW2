@@ -68,36 +68,23 @@ function Visualizer() {
             case 0:
                 // 條形
                 bar(analyser);
-                dynamic_photo(analyser);
+                //dynamic_photo(analyser);
                 break;
             default:
                 // 條形
                 bar(analyser);
-                dynamic_photo(analyser);
+                //dynamic_photo(analyser);
+                break;
         }
 
     }
-
-    function dynamic_photo(analyser) {
-        var array = new Uint8Array(analyser.frequencyBinCount);
-        analyser.getByteFrequencyData(array);
-        var max, total, average;
-        for (var i = 0; i < array.length; i++) {
-            total += array[i];
-            if (max < array[i]) max = array[i];
-            alert(array[i]);
+    /*
+        function dynamic_photo(analyser) {
+            var array = new Uint8Array(analyser.frequencyBinCount);
+            analyser.getByteFrequencyData(array);
+    
         }
-        average = total / array.length * 5;
-        $('#photo').css({
-            width: String(average) + '%',
-            height: String(average + '%')
-        });
-        $('#photo_back').css({
-            width: String(average),
-            height: String(average)
-        });
-    }
-
+    */
     // 條形音譜效果
     function bar(analyser) {
         var canvas = document.getElementById(Myself.canvasId);
@@ -123,10 +110,13 @@ function Visualizer() {
             analyser.getByteFrequencyData(array);
             // 計算採樣步長
             var step = Math.round(array.length / meterNum);
+            // 計算平均值
+            var average = 0;
             ctx.clearRect(0, 0, cwidth, cheight);
             for (var i = 0; i < meterNum; i++) {
                 // 獲取當前的能量值
                 var value = Math.sqrt(array[i * step] * array[i * step] * 1.5) * 1.5;
+                average += array[i * step];
                 if (capYPositionArray.length < Math.round(meterNum)) {
                     // 初始化保存帽頭位置的陣列，將第一個畫面的資訊壓入
                     capYPositionArray.push(value);
@@ -146,6 +136,15 @@ function Visualizer() {
                 ctx.fillStyle = gradient;
                 ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
             }
+            average = total / step * 5;
+            $('#photo').css({
+                width: String(average) + '%',
+                height: String(average + '%')
+            });
+            $('#photo_back').css({
+                width: String(average),
+                height: String(average)
+            });
             requestAnimationFrame(drawMeter);
         }
         requestAnimationFrame(drawMeter);
