@@ -82,11 +82,11 @@ function Visualizer() {
         var array = new Uint8Array(analyser.frequencyBinCount);
         analyser.getByteFrequencyData(array);
         var max;
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < array.length; i++) {
             total += array[i];
             if (max < array[i]) max = array[i];
         }
-        avarage = total / data.length * 5;
+        avarage = total / array.length * 5;
         $('#photo').css({
             width: String(average),
             height: String(average)
