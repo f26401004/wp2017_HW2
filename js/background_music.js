@@ -93,9 +93,12 @@ function Visualizer() {
         // 獲取 canvas 內容繪製
         ctx = canvas.getContext('2d'),
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
-        gradient.addColorStop(0, '#ca2fa7');
-        gradient.addColorStop(0.9, '#ca2fa7');
-        gradient.addColorStop(1, '#ff5151');
+        //gradient.addColorStop(0, '#ca2fa7');
+        //gradient.addColorStop(0.9, '#ca2fa7');
+        //gradient.addColorStop(1, '#ff5151');
+        gradient.addColorStop(0, "black");
+        gradient.addColorStop(0.5, "red");
+        gradient.addColorStop(1, "white");
         var drawMeter = function () {
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
