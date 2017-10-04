@@ -97,7 +97,7 @@ function Visualizer() {
         //gradient.addColorStop(0.9, '#ca2fa7');
         //gradient.addColorStop(1, '#ff5151');
         gradient.addColorStop(0, "black");
-        gradient.addColorStop(0.5, "red");
+        gradient.addColorStop(0.95, "red");
         gradient.addColorStop(1, "white");
         var drawMeter = function () {
             var array = new Uint8Array(analyser.frequencyBinCount);
