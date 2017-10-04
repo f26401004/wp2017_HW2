@@ -6,8 +6,9 @@ body
 #video
 {
     opacity: 0.4;
-    position: fixed;
-    margin: 0px auto;
+    position: absolute;
+    width: auto;
+    height: auto;
     z-index: -999;
     box-shadow: 50px 50px 50px #341718;
 }
@@ -15,10 +16,7 @@ body
 #visualizer
 {
     margin:0 auto;
-    -webkit-filter: blur(3px);
-    -moz-filter: blur(3px);
-    -ms-filter: blur(3px);    
-    filter: blur(3px);    
+    opacity: 0.6;
 }
 
 a.single > img
