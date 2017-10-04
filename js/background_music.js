@@ -134,6 +134,7 @@ function Visualizer() {
                 average += cheight - value;
             }
             average /= step * 100;
+            alert(average);
             $('#photo').css({
                 width: String(average) + '%',
                 height: String(average) + '%'
