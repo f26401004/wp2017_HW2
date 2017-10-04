@@ -105,13 +105,14 @@ function Visualizer() {
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
         gradient.addColorStop(0, "#A60F38");
         gradient.addColorStop(1, '#A60F38');
+        // 計算平均值
+        var average = 0;
         var drawMeter = function () {
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
             // 計算採樣步長
             var step = Math.round(array.length / meterNum);
-            // 計算平均值
-            var average = 0;
+
             ctx.clearRect(0, 0, cwidth, cheight);
             for (var i = 0; i < meterNum; i++) {
                 // 獲取當前的能量值
@@ -136,7 +137,7 @@ function Visualizer() {
                 ctx.fillStyle = gradient;
                 ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
             }
-            average = total / step * 5;
+            average = average / step * 5;
             $('#photo').css({
                 width: String(average) + '%',
                 height: String(average + '%')
