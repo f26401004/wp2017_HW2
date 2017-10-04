@@ -135,6 +135,7 @@ function Visualizer() {
                 ctx.fillStyle = gradient;
                 ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
             }
+            alert(average);
             average /= step;
             $('#photo').css({
                 width: String(average) + '%',
