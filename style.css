@@ -12,7 +12,7 @@ body
     width: 2020px;
     height: 1180px;
     z-index: -999;
-    box-shadow: 50px 50px 50px #341718;
+    box-shadow: 100px 100px 100px 100px #341718 inset;
 }
 
 #visualizer
