@@ -4,8 +4,8 @@ function Visualizer() {
     var lastAvarage = 0, particles = [];
     for (var i = 0; i < 100; i++) {
         particles[i] = {
-            x: Math.random() * width,
-            y: Math.random() * height,
+            x: Math.random() * 1300,
+            y: Math.random() * 860,
             r: Math.random() * 5,
             minR: Math.random() * 5 + 1,
             maxR: Math.random() * 12 + 5,
