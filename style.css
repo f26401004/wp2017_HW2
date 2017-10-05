@@ -221,8 +221,10 @@ p#works_area
     position: absolute;
     width: 400px;
     height: 399px;
-    margin-top: 10px;
-    margin-left: 15px;
+    top:  -200px;
+    left: -200px;
+    margin-top: 210px;
+    margin-left: 215px;
     z-index: 1;
     transform-origin: center top left;
     min-width: 400px;
@@ -234,8 +236,10 @@ p#works_area
     position:  absolute;
     width: 292px;
     height: 292px;
-    margin-top: 40px;
-    margin-left: 50px;
+    top: -146px;
+    left: -146px;
+    margin-top: 186px;
+    margin-left: 196px;
     border-radius: 292px;
     border: 10px solid #FFFFFF;
     box-shadow: 16px 16px 0px 0px #514335;

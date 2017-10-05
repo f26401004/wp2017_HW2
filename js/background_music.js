@@ -108,8 +108,8 @@ function Visualizer() {
             analyser.getByteFrequencyData(array);
             // 計算平均值
             for (var i = 0; i < array.length; i++)
-                avarage += array[i];
-            avarage /= 9000;
+                avarage += array[i] * arrar[i];
+            avarage /= 20000;
             $('#photo_back').css({
                 width: String(avarage + 400) + 'px',
                 height: String(avarage + 399) + 'px'
