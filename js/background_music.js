@@ -1,7 +1,15 @@
 // 建立一個實例對象方法
 function Visualizer() {
     var Myself = this;
-    var lastAvarage = 0, particles = [];
+    var lastAvarage = 0,
+        particles = [],
+        angle = 0,
+        avarage = 0,
+        colors = ['105, 210, 231',
+            '255, 255, 255',
+            '248, 37, 77',
+            '248, 225, 16'
+        ];
     for (var i = 0; i < 100; i++) {
         particles[i] = {
             x: Math.random() * 1300,
@@ -114,9 +122,8 @@ function Visualizer() {
             meterNum = canvas.width / (8 + 2),
             // 將上一個畫面的帽頭放到陣列儲存
             capYPositionArray = [],
-            avarage = 0;
-        // 獲取 canvas 內容繪製
-        ctx = canvas.getContext('2d'),
+            // 獲取 canvas 內容繪製
+            ctx = canvas.getContext('2d'),
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
         gradient.addColorStop(0, "#A60F38");
         gradient.addColorStop(1, '#A60F38');
