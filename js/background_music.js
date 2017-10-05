@@ -90,24 +90,35 @@ function Visualizer() {
                 // 條形
                 bar(analyser);
                 light(analyser);
-                //dynamic_photo(analyser);
+                dynamic_photo(analyser);
                 break;
             default:
                 // 條形
                 bar(analyser);
                 light(analyser);
-                //dynamic_photo(analyser);
+                dynamic_photo(analyser);
                 break;
         }
 
     }
-    /*
-        function dynamic_photo(analyser) {
+    function dynamic_photo(analyser) {
+        var avarage = 0;
+        var drawMeter = function () {
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
-    
+            // 計算平均值
+            for (var i = 0; i < array.length; i++)
+                avarage += array[i];
+            avarage /= 10000;
+            $('#photo_back').css({
+                width: String(avarage) + '%',
+                height: String(avarage) + '%'
+            });
+            requestAnimationFrame(drawMeter);
         }
-    */
+        requestAnimationFrame(drawMeter);
+
+    }
 
     function light(analyser) {
         var canvas = document.getElementById(Myself.canvasId),
@@ -119,7 +130,7 @@ function Visualizer() {
             // 計算平均值
             for (var i = 0; i < array.length; i++)
                 avarage += array[i];
-            avarage /= 100;
+            avarage /= 1000;
             // 計算與上次平均值的差異
             var dif = avarage - lastAvarage,
                 absDif = Math.abs(dif);
@@ -175,17 +186,6 @@ function Visualizer() {
             requestAnimationFrame(drawMeter);
         }
         requestAnimationFrame(drawMeter);
-
-
-
-
-
-
-
-
-
-
-
     }
 
     // 條形音譜效果
