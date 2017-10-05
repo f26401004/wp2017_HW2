@@ -109,14 +109,14 @@ function Visualizer() {
             // 計算平均值
             for (var i = 0; i < array.length; i++)
                 avarage += array[i];
-            avarage /= 10000;
+            avarage /= 9000;
             $('#photo_back').css({
                 width: String(avarage + 400) + 'px',
                 height: String(avarage + 399) + 'px'
             });
             $('#photo').css({
-                width: String(avarage + 282) + 'px',
-                height: String(avarage + 282) + 'px'
+                width: String(avarage + 292) + 'px',
+                height: String(avarage + 292) + 'px'
             });
             requestAnimationFrame(drawMeter);
         }

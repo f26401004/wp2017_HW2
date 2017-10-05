@@ -224,7 +224,7 @@ p#works_area
     margin-top: 10px;
     margin-left: 15px;
     z-index: 1;
-    transform-origin: center;
+    transform-origin: center top left;
     min-width: 400px;
     min-height: 399px;
 }
@@ -241,7 +241,7 @@ p#works_area
     box-shadow: 16px 16px 0px 0px #514335;
     padding: 10px;
     z-index: 2;
-    transform-origin: center;
+    transform-origin: center top left;
     min-width: 292px;
     min-height: 292px;
 }
