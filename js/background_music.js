@@ -159,6 +159,7 @@ function Visualizer() {
             avarage /= array.length;
             var dif = avarage - lastAvarage,
                 absDif = Math.abs(dif);
+            alert(absDif);
             for (var i = 0, len = particles.length; i < len; i = i + 2) {
                 var p = particles[i];
                 // 更新
