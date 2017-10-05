@@ -225,6 +225,8 @@ p#works_area
     margin-left: 15px;
     z-index: 1;
     transform-origin: center;
+    min-width: 400px;
+    min-height: 399px;
 }
 
 #photo
@@ -240,6 +242,8 @@ p#works_area
     padding: 10px;
     z-index: 2;
     transform-origin: center;
+    min-width: 292px;
+    min-height: 292px;
 }
 
 #llight
