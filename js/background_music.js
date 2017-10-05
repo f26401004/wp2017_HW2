@@ -4,7 +4,6 @@ function Visualizer() {
     var lastAvarage = 0,
         particles = [],
         angle = 0,
-        avarage = 0,
         colors = ['105, 210, 231',
             '255, 255, 255',
             '248, 37, 77',
@@ -115,13 +114,12 @@ function Visualizer() {
             avarage = 0,
             ctx = canvas.getContext('2d');
         var drawMeter = function () {
-            var array = new Uint8Array(analyser.frequencyBinCount),
-                step = Math.round(array.length / 10);
+            var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
             // 計算平均值
-            for (var i = 0; i < array.length; i = i + step)
+            for (var i = 0; i < array.length; i++)
                 avarage += array[i];
-            avarage /= step;
+            avarage /= 10;
             // 計算與上次平均值的差異
             var dif = avarage - lastAvarage,
                 absDif = Math.abs(dif);
