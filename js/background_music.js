@@ -4,7 +4,7 @@ function Visualizer() {
     var lastAvarage = 0,
         particles = [],
         angle = 0,
-        colors = ['105, 210, 231',
+        colors = ['243, 47, 222',
             '255, 255, 255',
             '248, 37, 77',
             '248, 225, 16'
@@ -90,40 +90,15 @@ function Visualizer() {
                 // 條形
                 bar(analyser);
                 light(analyser);
-                dynamic_photo(analyser);
                 break;
             default:
                 // 條形
                 bar(analyser);
                 light(analyser);
-                dynamic_photo(analyser);
                 break;
         }
 
     }
-    function dynamic_photo(analyser) {
-        var avarage = 0;
-        var drawMeter = function () {
-            var array = new Uint8Array(analyser.frequencyBinCount);
-            analyser.getByteFrequencyData(array);
-            // 計算平均值
-            for (var i = 0; i < array.length; i++)
-                avarage += array[i] * array[i];
-            avarage /= 500000;
-            $('#photo_back').css({
-                width: String(avarage + 400) + 'px',
-                height: String(avarage + 399) + 'px'
-            });
-            $('#photo').css({
-                width: String(avarage + 292) + 'px',
-                height: String(avarage + 292) + 'px'
-            });
-            requestAnimationFrame(drawMeter);
-        }
-        requestAnimationFrame(drawMeter);
-
-    }
-
     function light(analyser) {
         var canvas = document.getElementById(Myself.canvasId),
             avarage = 0,
@@ -134,7 +109,7 @@ function Visualizer() {
             // 計算平均值
             for (var i = 0; i < array.length; i++)
                 avarage += array[i];
-            avarage /= 2500;
+            avarage /= 3000;
             // 計算與上次平均值的差異
             var dif = avarage - lastAvarage,
                 absDif = Math.abs(dif);
