@@ -109,8 +109,12 @@ function Visualizer() {
             // 計算平均值
             for (var i = 0; i < array.length; i++)
                 avarage += array[i];
-            avarage /= 10000;
+            avarage /= 1250;
             $('#photo_back').css({
+                width: String(avarage) + '%',
+                height: String(avarage) + '%'
+            });
+            $('#photo').css({
                 width: String(avarage) + '%',
                 height: String(avarage) + '%'
             });
@@ -130,7 +134,7 @@ function Visualizer() {
             // 計算平均值
             for (var i = 0; i < array.length; i++)
                 avarage += array[i];
-            avarage /= 1000;
+            avarage /= 2500;
             // 計算與上次平均值的差異
             var dif = avarage - lastAvarage,
                 absDif = Math.abs(dif);
