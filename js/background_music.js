@@ -99,14 +99,14 @@ function Visualizer() {
             // 頻譜條數量
             meterNum = canvas.width / (8 + 2),
             // 將上一個畫面的帽頭放到陣列儲存
-            capYPositionArray = [];
+            capYPositionArray = [],
+            average = 0;
         // 獲取 canvas 內容繪製
         ctx = canvas.getContext('2d'),
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
         gradient.addColorStop(0, "#A60F38");
         gradient.addColorStop(1, '#A60F38');
         var drawMeter = function () {
-            average = 0;
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
             // 計算採樣步長
@@ -115,6 +115,7 @@ function Visualizer() {
             for (var i = 0; i < meterNum; i++) {
                 // 獲取當前的能量值
                 var value = array[i * step] * 1.5;
+                average += value;
                 if (capYPositionArray.length < Math.round(meterNum)) {
                     // 初始化保存帽頭位置的陣列，將第一個畫面的資訊壓入
                     capYPositionArray.push(value);
@@ -132,6 +133,64 @@ function Visualizer() {
                 ctx.fillStyle = gradient;
                 ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
             }
+            average /= array.length;
+            var dif = avarage - lastAvarage,
+                absDif = Math.abs(dif);
+            for (var i = 0, len = particles.length; i < len; i = i + 2) {
+                var p = particles[i];
+                // 更新
+                if (dif > 0) {
+                    p.r += absDif / 10;
+                    if (p.r > p.maxR) {
+                        p.r -= (p.r - p.maxR) / 5;
+                    }
+                    p.o += 0.05;
+                    if (p.o > 1) {
+                        p.o = 1;
+                    }
+                } else {
+                    p.r -= absDif / 5;
+                    if (p.r < 0) {
+                        p.r = 0.01;
+                    }
+                    if (p.r < p.minR) {
+                        p.r += (p.minR - p.r) / 10;
+                    }
+                    p.o -= 0.05;
+                    if (p.o < p.minO) {
+                        p.o = p.minO;
+                    }
+                }
+                angle += 0.0001;
+                p.y += Math.cos(angle + p.d) - 2;
+                p.x += Math.sin(angle + p.d);
+                if (p.x > canvas.width + 5) {
+                    p.x = -5;
+                    p.d = Math.random() * 50;
+                } else if (p.x < -5) {
+                    p.x = canvas.width + 5;
+                    p.d = Math.random() * 50;
+                } else if (p.y < 0) {
+                    p.y = canvas.height + 5;
+                    p.d = Math.random() * 50;
+                }
+                // 描繪光點
+                var grd = ctx.createRadialGradient(p.x, p.y, 2, p.x, p.y, p.r + 3);
+                grd.addColorStop(0, 'rgba(255, 255, 255, ' + p.o + ')');
+                grd.addColorStop(1, 'rgba(' + p.c + ', 0)');
+                ctx.fillStyle = grd;
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.arc(p.x, p.y, p.r + 3, 0, Math.PI * 2, true);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+
+
+
+
+
             requestAnimationFrame(drawMeter);
         }
         requestAnimationFrame(drawMeter);
