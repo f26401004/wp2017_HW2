@@ -1,6 +1,20 @@
 // 建立一個實例對象方法
 function Visualizer() {
     var Myself = this;
+    var lastAvarage = 0, particles = [];
+    for (var i = 0; i < 100; i++) {
+        particles[i] = {
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: Math.random() * 5,
+            minR: Math.random() * 5 + 1,
+            maxR: Math.random() * 12 + 5,
+            d: Math.random() * 50,
+            c: colors[util.intRandom(0, colorNum)]
+        }
+        particles[i].minO = particles[i].o = Math.random() * 0.8 + 0.2;
+    }
+
     // 設定頻譜
     this.config = function (Object) {
         Myself.audioUrl = Object.audioUrl;
@@ -100,7 +114,7 @@ function Visualizer() {
             meterNum = canvas.width / (8 + 2),
             // 將上一個畫面的帽頭放到陣列儲存
             capYPositionArray = [],
-            average = 0;
+            avarage = 0;
         // 獲取 canvas 內容繪製
         ctx = canvas.getContext('2d'),
             gradient = ctx.createLinearGradient(0, 0, 0, 300);
@@ -115,7 +129,7 @@ function Visualizer() {
             for (var i = 0; i < meterNum; i++) {
                 // 獲取當前的能量值
                 var value = array[i * step] * 1.5;
-                average += value;
+                avarage += value;
                 if (capYPositionArray.length < Math.round(meterNum)) {
                     // 初始化保存帽頭位置的陣列，將第一個畫面的資訊壓入
                     capYPositionArray.push(value);
@@ -133,7 +147,9 @@ function Visualizer() {
                 ctx.fillStyle = gradient;
                 ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
             }
-            average /= array.length;
+
+
+            avarage /= array.length;
             var dif = avarage - lastAvarage,
                 absDif = Math.abs(dif);
             for (var i = 0, len = particles.length; i < len; i = i + 2) {
