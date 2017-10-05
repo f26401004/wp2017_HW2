@@ -90,11 +90,13 @@ function Visualizer() {
             case 0:
                 // 條形
                 bar(analyser);
+                light(analyser);
                 //dynamic_photo(analyser);
                 break;
             default:
                 // 條形
                 bar(analyser);
+                light(analyser);
                 //dynamic_photo(analyser);
                 break;
         }
@@ -107,59 +109,23 @@ function Visualizer() {
     
         }
     */
-    // 條形音譜效果
-    function bar(analyser) {
-        var canvas = document.getElementById(Myself.canvasId);
-        canvas.width = document.getElementById("background").width - 60;
-        canvas.height = document.getElementById("background").height - 64;
-        var cwidth = canvas.width,
-            cheight = canvas.height - 2,
-            meterWidth = 8,
-            gap = 14,
-            capHeight = 3,
-            capStyle = '#fff',
-            // 頻譜條數量
-            meterNum = canvas.width / (8 + 2),
-            // 將上一個畫面的帽頭放到陣列儲存
-            capYPositionArray = [],
-            // 獲取 canvas 內容繪製
-            ctx = canvas.getContext('2d'),
-            gradient = ctx.createLinearGradient(0, 0, 0, 300);
-        gradient.addColorStop(0, "#A60F38");
-        gradient.addColorStop(1, '#A60F38');
+
+    function light(analyser) {
+        var canvas = document.getElementById(Myself.canvasId),
+            avarage = 0,
+            ctx = canvas.getContext('2d');
         var drawMeter = function () {
-            var array = new Uint8Array(analyser.frequencyBinCount);
+            var array = new Uint8Array(analyser.frequencyBinCount),
+                step = Math.round(array.length / 10);
             analyser.getByteFrequencyData(array);
-            // 計算採樣步長
-            var step = Math.round(array.length / meterNum);
-            ctx.clearRect(0, 0, cwidth, cheight);
-            for (var i = 0; i < meterNum; i++) {
-                // 獲取當前的能量值
-                var value = array[i * step] * 1.5;
-                avarage += value;
-                if (capYPositionArray.length < Math.round(meterNum)) {
-                    // 初始化保存帽頭位置的陣列，將第一個畫面的資訊壓入
-                    capYPositionArray.push(value);
-                }
-                ctx.fillStyle = capStyle;
-                // 繪製帽頭
-                if (value < capYPositionArray[i]) {
-                    ctx.fillRect(i * gap, cheight - (--capYPositionArray[i]), meterWidth, capHeight);
-                } else {
-                    ctx.fillRect(i * gap, cheight - value, meterWidth, capHeight);
-                    capYPositionArray[i] = value;
-                }
-                // 繪製頻譜條
-                ctx.fillRect(i * gap - 1, cheight - value + capHeight - 1, meterWidth + 2, cheight + 2);
-                ctx.fillStyle = gradient;
-                ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
-            }
-
-
-            avarage /= array.length;
+            // 計算平均值
+            for (var i = 0; i < array.length; i = i + step)
+                avarage += array[i];
+            avarage /= step;
+            // 計算與上次平均值的差異
             var dif = avarage - lastAvarage,
                 absDif = Math.abs(dif);
-            alert(absDif);
+            // 描繪光點
             for (var i = 0, len = particles.length; i < len; i = i + 2) {
                 var p = particles[i];
                 // 更新
@@ -198,7 +164,6 @@ function Visualizer() {
                     p.y = canvas.height + 5;
                     p.d = Math.random() * 50;
                 }
-                // 描繪光點
                 var grd = ctx.createRadialGradient(p.x, p.y, 2, p.x, p.y, p.r + 3);
                 grd.addColorStop(0, 'rgba(255, 255, 255, ' + p.o + ')');
                 grd.addColorStop(1, 'rgba(' + p.c + ', 0)');
@@ -209,12 +174,68 @@ function Visualizer() {
                 ctx.closePath();
                 ctx.fill();
             }
+            requestAnimationFrame(drawMeter);
+        }
+        requestAnimationFrame(drawMeter);
 
 
 
 
 
 
+
+
+
+
+
+    }
+
+    // 條形音譜效果
+    function bar(analyser) {
+        var canvas = document.getElementById(Myself.canvasId);
+        canvas.width = document.getElementById("background").width - 60;
+        canvas.height = document.getElementById("background").height - 64;
+        var cwidth = canvas.width,
+            cheight = canvas.height - 2,
+            meterWidth = 8,
+            gap = 14,
+            capHeight = 3,
+            capStyle = '#fff',
+            // 頻譜條數量
+            meterNum = canvas.width / (8 + 2),
+            // 將上一個畫面的帽頭放到陣列儲存
+            capYPositionArray = [],
+            // 獲取 canvas 內容繪製
+            ctx = canvas.getContext('2d'),
+            gradient = ctx.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, "#A60F38");
+        gradient.addColorStop(1, '#A60F38');
+        var drawMeter = function () {
+            var array = new Uint8Array(analyser.frequencyBinCount);
+            analyser.getByteFrequencyData(array);
+            // 計算採樣步長
+            var step = Math.round(array.length / meterNum);
+            ctx.clearRect(0, 0, cwidth, cheight);
+            for (var i = 0; i < meterNum; i++) {
+                // 獲取當前的能量值
+                var value = array[i * step] * 1.5;
+                if (capYPositionArray.length < Math.round(meterNum)) {
+                    // 初始化保存帽頭位置的陣列，將第一個畫面的資訊壓入
+                    capYPositionArray.push(value);
+                }
+                ctx.fillStyle = capStyle;
+                // 繪製帽頭
+                if (value < capYPositionArray[i]) {
+                    ctx.fillRect(i * gap, cheight - (--capYPositionArray[i]), meterWidth, capHeight);
+                } else {
+                    ctx.fillRect(i * gap, cheight - value, meterWidth, capHeight);
+                    capYPositionArray[i] = value;
+                }
+                // 繪製頻譜條
+                ctx.fillRect(i * gap - 1, cheight - value + capHeight - 1, meterWidth + 2, cheight + 2);
+                ctx.fillStyle = gradient;
+                ctx.fillRect(i * gap + 1, cheight - value + capHeight + 1, meterWidth - 2, cheight - 2);
+            }
             requestAnimationFrame(drawMeter);
         }
         requestAnimationFrame(drawMeter);
