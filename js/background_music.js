@@ -18,7 +18,7 @@ function Visualizer() {
             minR: Math.random() * 5 + 1,
             maxR: Math.random() * 12 + 5,
             d: Math.random() * 50,
-            c: colors[util.intRandom(0, colorNum)]
+            c: colors[Math.floor(Math.random() * 4)]
         }
         particles[i].minO = particles[i].o = Math.random() * 0.8 + 0.2;
     }
