@@ -109,7 +109,7 @@ function Visualizer() {
             // 計算平均值
             for (var i = 0; i < array.length; i++)
                 avarage += array[i] * array[i];
-            avarage /= 140000;
+            avarage /= 500000;
             $('#photo_back').css({
                 width: String(avarage + 400) + 'px',
                 height: String(avarage + 399) + 'px'
