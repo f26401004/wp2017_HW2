@@ -335,6 +335,7 @@ p#works_area
     top: 50%;
     margin-top: -150px;
     margin-left: -200px;
+    z-index: 999;
 
 }
 
