@@ -345,6 +345,8 @@ p#works_area
     margin: 10px;
     max-width: 380px;
     max-height: 150px;
+    min-width: 380px;
+    min-height: 150px;
 }
 
 #bookmark
