@@ -51,7 +51,7 @@ p#intro_text
 
 p#hyperlinks
 {
-    line-height: 40px;
+    line-height: 30px;
     font-size: 24px;
 }
 
@@ -343,6 +343,8 @@ p#works_area
     width: 380px;
     height: 150px;
     margin: 10px;
+    max-width: 380px;
+    max-height: 150px;
 }
 
 #bookmark
