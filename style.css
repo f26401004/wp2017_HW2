@@ -329,14 +329,20 @@ p#works_area
     border: 2px solid #AAAAAA;
     box-shadow: 10px #888888;
     position: absolute;
-    width: 380px;
+    width: 400px;
     height: 250px;
     left: 50%;
     top: 50%;
     margin-top: -125px;
-    margin-left: -190px;
+    margin-left: -200px;
     z-index: 999;
+}
 
+#your_intro
+{
+    width: 380px;
+    height: 150px;
+    margin: 10px;
 }
 
 #bookmark
