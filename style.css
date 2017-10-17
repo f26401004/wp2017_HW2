@@ -323,6 +323,20 @@ p#works_area
     z-index: 4;
 }
 
+#default-popup
+{
+    background-color: #FFFFFF;
+    border: 2px solid #AAAAAA;
+    box-shadow: 10px #888888;
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    left: 50%;
+    top: 50%;
+    margin-top: -150px;
+    margin-left: -200px;
+
+}
 
 #bookmark
 {

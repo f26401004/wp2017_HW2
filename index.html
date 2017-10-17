@@ -5,11 +5,13 @@
 
 <head>
     <link type="text/css" rel="stylesheet" href="style.css"></link>
+    <link type="text/css" rel="stylesheet" href="avgrund.css"></link>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="js/background.js"></script>
     <script type="text/javascript" src="js/background_music.js"></script>
     <script async src="https://www.youtube.com/iframe_api"></script>
+    <script type="text/javascript" src="js/avgrund.js"></script>
 
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -179,6 +181,13 @@
                 }
             });
         }
+        // 開始對話框
+        function openDialog() {
+            Avgrund.show("#default-popup");
+        }
+        function closeDialog() {
+            Avgrund.hide();
+        }
     </script>
 </head>
 
@@ -191,7 +200,9 @@
     </center>
     <canvas id="background"></canvas>
 
-    <a href="#" id="button"><img src="images/button_left.png" id=button_left onclick="change_left_page()" href=""></img></a>
+    <a href="#" id="button">
+        <img src="images/button_left.png" id=button_left onclick="change_left_page()" href=""></img>
+    </a>
 
     <div id=contents>
         <div id="contents_membran">
@@ -202,29 +213,65 @@
             <img id=rlight src="images/chandelier.png"></img>
             <div id="intro">
                 <h2 id="i_title">自我介紹</h2>
-                <p id="intro_text">名字：黃俊豪 <br>就讀：NCKU CSIE <br>年齡： 19 歲 <br>興趣：設計、程式、遊戲製作 <br> 專長：PS、RPGMaker 系列 <br>信箱：f26401004@gmail.com</p>
+                <p id="intro_text">名字：黃俊豪
+                    <br>就讀：NCKU CSIE
+                    <br>年齡： 19 歲
+                    <br>興趣：設計、程式、遊戲製作
+                    <br> 專長：PS、RPGMaker 系列
+                    <br>信箱：f26401004@gmail.com</p>
             </div>
             <div id="works">
                 <h2 id="w_title">作品集</h2>
                 <p id="works_area">
-                    <a class="single" rel="gallery" href="images/work_1.png"><img src="images/work_1_s.png"alt="" /></a>
-                    <a class="single" rel="gallery" href="images/work_2.png"><img src="images/work_2_s.png" alt="" /></a>
-                    <a class="single" rel="gallery" href="images/work_3.png"><img src="images/work_3_s.png" alt="" /></a>
-                    <a class="single" rel="gallery" href="images/work_4.png"><img src="images/work_4_s.png" alt="" /></a>
-                    <a class="single" rel="gallery" href="images/work_5.png"><img src="images/work_5_s.png" alt="" /></a>
-                    <a class="single" rel="gallery" href="images/work_6.png"><img src="images/work_6_s.png" alt="" /></a>
-                    <a class="single" rel="gallery" href="images/work_7.png"><img src="images/work_7_s.png" alt="" /></a>
-                    <a class="single" rel="gallery" href="images/work_8.png"><img src="images/work_8_s.png" alt="" /></a>
+                    <a class="single" rel="gallery" href="images/work_1.png">
+                        <img src="images/work_1_s.png" alt="" />
+                    </a>
+                    <a class="single" rel="gallery" href="images/work_2.png">
+                        <img src="images/work_2_s.png" alt="" />
+                    </a>
+                    <a class="single" rel="gallery" href="images/work_3.png">
+                        <img src="images/work_3_s.png" alt="" />
+                    </a>
+                    <a class="single" rel="gallery" href="images/work_4.png">
+                        <img src="images/work_4_s.png" alt="" />
+                    </a>
+                    <a class="single" rel="gallery" href="images/work_5.png">
+                        <img src="images/work_5_s.png" alt="" />
+                    </a>
+                    <a class="single" rel="gallery" href="images/work_6.png">
+                        <img src="images/work_6_s.png" alt="" />
+                    </a>
+                    <a class="single" rel="gallery" href="images/work_7.png">
+                        <img src="images/work_7_s.png" alt="" />
+                    </a>
+                    <a class="single" rel="gallery" href="images/work_8.png">
+                        <img src="images/work_8_s.png" alt="" />
+                    </a>
                 </p>
             </div>
             <div id="connection">
                 <h2 id="c_title">相關連結</h2>
                 <p id="hyperlinks">
-                    <a href="https://github.com/f26401004" target="_blank">▼ gitgub </a><br>
-                    <a href="https://www.plurk.com/f26401004" target="_blank">▼ plurk </a><br>
+                    <a href="https://github.com/f26401004" target="_blank">▼ gitgub </a>
+                    <br>
+                    <a href="https://www.plurk.com/f26401004" target="_blank">▼ plurk </a>
+                    <br>
                     <a href="https://home.gamer.com.tw/homeindex.php?owner=f26401004" target="_blank">▼ 巴哈姆特 </a>
+                    <button onClick="openDialog()">向我打招呼</button>
                 </p>
             </div>
+            <aside id="default-popup" class="avgrund-popup">
+                <form>
+                    你的大名：
+                    <input type="text" placeholder="your name">
+                    <br> 你的綽號：
+                    <input type="text" placeholder="your nickname">
+                    <br>
+                </form>
+                <textarea id="your_intro_content">在這邊打上你的自我介紹吧！^^</texrarea>
+                <button onClick="closeDialog()">打招呼</button>
+                <button onClick="closeDialog()">算了吧你這個臭肥宅</button>
+            </aside>
             <div id=bookmark>
                 <p id="index">
                     <center></center>
