@@ -203,7 +203,7 @@
                 // 把 data 存回去
                 $.ajax({
                     url: "http://luffy.ee.ncku.edu.tw/~f26401004/add_data.php",
-                    type: "POST",
+                    type: "GET",
                     data: { name: intro_name, nickname: intro_nickname, contents: intro_contents },
                     success: function (data) {
                         if (data == '1') {
