@@ -202,7 +202,7 @@
             else {
                 // 把 data 存回去
                 $.ajax({
-                    url: "http://luffy.ee.ncku.edu.tw/~f26401004/add_data.php",
+                    url: "https://luffy.ee.ncku.edu.tw/~f26401004/add_data.php",
                     type: "GET",
                     data: { name: intro_name, nickname: intro_nickname, contents: intro_contents },
                     success: function (data) {
@@ -220,7 +220,7 @@
                     error: function (data) {
                         alert("傳送失敗了!!!檢查一下你現在有沒有網路~");
                     }
-                });
+                })s;
             }
         }
     </script>
