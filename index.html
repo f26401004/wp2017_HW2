@@ -185,8 +185,40 @@
         function openDialog() {
             Avgrund.show("#default-popup");
         }
+        // 關閉對話框
         function closeDialog() {
             Avgrund.hide();
+        }
+        // 儲存自我介紹的內容
+        function saveData() {
+            Avgrund.hide();
+            var intro_name = $('#name').val(),
+                intro_nickname = $('#nickname').val(),
+                intro_contents = $('#your_intro').val();
+            //如果欄位是空白的就不能送出
+            if (intro_name == '' || intro_nickname == '' || intro_contents == '') {
+                alert('霸托鼻要留白，和青春一樣 <3');
+            }
+            else {
+                // 把 data 存回去
+                $.ajax({
+                    url: "http://luffy.ee.ncku.edu.tw/~f26401004/add_data.php",
+                    type: "POST",
+                    data: { name: intro_name, nickname: intro_nickname, contents: intro_contents },
+                    success: function (data) {
+                        if (data == '1') {
+                            alert('哎呀，好像有什麼東西出錯啦，等等再試一次吧！');
+                        }
+                        else {
+                            Avgrund.hide()
+                            // 清空 input
+                            $('#name').val('');
+                            $('#nickname').val('');
+                            $('#your_intro').val('在這邊打上你的自我介紹讓我好好認識你！^^');
+                        }
+                    }
+                });
+            }
         }
     </script>
 </head>
@@ -283,12 +315,12 @@
     <aside id="default-popup" class="avgrund-popup">
         <form>
             你的大名：
-            <input type="text" placeholder="your name">
+            <input type="text" placeholder="your name" id="name">
             <br> 你的綽號：
-            <input type="text" placeholder="your nickname">
+            <input type="text" placeholder="your nickname" id="nickname">
             <br>
         </form>
-        <textarea id="your_intro">在這邊打上你的自我介紹讓我好好認識你！^^</textarea>
+        <textarea id="your_intro" id="your_intro">在這邊打上你的自我介紹讓我好好認識你！^^</textarea>
         <br>
         <div align="right">
             <button onclick="closeDialog()">打招呼</button>
