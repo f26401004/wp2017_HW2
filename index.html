@@ -205,6 +205,9 @@
                     url: "https://luffy.ee.ncku.edu.tw/~f26401004/ajax/add_data.php",
                     type: "GET",
                     data: { name: intro_name, nickname: intro_nickname, contents: intro_contents },
+                    headers: {
+                        'Access-Control-Allow-Origin': '*'
+                    },
                     success: function (data) {
                         if (data == '1') {
                             alert('哎呀，好像有什麼東西出錯啦，等等再試一次吧！');
