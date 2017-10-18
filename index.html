@@ -211,13 +211,15 @@
                             alert('哎呀，好像有什麼東西出錯啦，等等再試一次吧！');
                         }
                         else {
-                            alert("success!!");
                             Avgrund.hide()
                             // 清空 input
                             $('#name').val('');
                             $('#nickname').val('');
                             $('#your_intro').val('在這邊打上你的自我介紹讓我好好認識你！^^');
                         }
+                    },
+                    error: function (data) {
+                        alert("傳送失敗了!!!檢查一下你現在有沒有網路~");
                     }
                 });
             }
